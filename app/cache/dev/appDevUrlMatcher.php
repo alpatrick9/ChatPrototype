@@ -105,11 +105,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // agendaHome
-        if ($pathinfo === '/agenda') {
-            return array (  '_controller' => 'AppBundle\\Controller\\AgendaController::indexAction',  '_route' => 'agendaHome',);
-        }
-
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

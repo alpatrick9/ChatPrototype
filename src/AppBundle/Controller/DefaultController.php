@@ -13,15 +13,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $latitude = -18.9120922;
-        $longitude = 47.5216627;
-        $title = 'Tananarive';
-
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-            'lat'=>$latitude,
-            'lng'=>$longitude,
-            'title'=>$title
-        ));
+        return $this->render('default/index.html.twig');
     }
 }
