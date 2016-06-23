@@ -1,9 +1,28 @@
 {% extends "::base.html.twig" %}
 {% block body %}
-    Ici
-    <script>
-        jQuery(function($) {
+    <form method="post">
+        {{ form_widget(form) }}
+        <input type="submit" value="Publier">
+    </form>
+    <hr>
+    {% for comment in comments %}
+        {{ comment.comment }} <br>
+    {% else %}
+        Aucun commentaire
+    {% endfor %}
 
-        });
+
+    <script>
+        function refreshComment() {
+            $.ajax({
+                url: "{{ path('refresh_comment') }}",
+                method: "post",
+                data: {nbComment: {{ comments|length}} }
+            }).done(function(msg) {
+                console.log('poste '+{{ comments|length }});
+            })
+            setTimeout(refreshComment,5000);
+        }
+        refreshComment();
     </script>
 {% endblock %}
