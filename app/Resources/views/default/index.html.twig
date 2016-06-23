@@ -1,17 +1,8 @@
 {% extends "::base.html.twig" %}
 {% block body %}
-    <form>
-        <input type="submit" value="envoi">
-    </form>
-    <script src="{{ asset('http://localhost:4321/socket.io/socket.io.js') }}"></script>
-
+    Ici
     <script>
         jQuery(function($) {
-            var socket = io.connect('http://localhost:4321');
-
-            $('form').on('submit', function() {
-                socket.emit('newOrder', '1');
-            });
 
         });
     </script>
