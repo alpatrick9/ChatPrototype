@@ -51,7 +51,7 @@ class DefaultController extends Controller
             $status = new RefreshStatus();
             $nbComment = $request->get('nbComment');
             $newNbcomment = $this->getDoctrine()->getManager()->getRepository('AppBundle:Comment')->countComment();
-            if($newNbcomment > $nbComment) {
+            if($newNbcomment != $nbComment) {
                 $status->status = true;
             }
             return new JsonResponse(json_encode($status));
