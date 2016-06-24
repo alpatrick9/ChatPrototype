@@ -42,7 +42,7 @@ class DefaultController extends Controller
 
     /**
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|void
+     * @return JsonResponse|Response
      * @Route("/refresh-comment", name="refresh_comment")
      * @Method({"POST"})
      */
