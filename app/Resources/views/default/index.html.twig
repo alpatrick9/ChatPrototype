@@ -17,9 +17,15 @@
             $.ajax({
                 url: "{{ path('refresh_comment') }}",
                 method: "post",
-                data: {nbComment: {{ comments|length}} }
-            }).done(function(msg) {
-                console.log('poste '+{{ comments|length }});
+                data: {nbComment: {{ comments|length}} },
+                success: function (msg) {
+                    if(JSON.parse(msg).status) {
+                        document.location.href="{{ path('homepage') }}";
+                    }
+                },
+                error: function (msg) {
+                    console.log('Error request Ajax');
+                }
             })
             setTimeout(refreshComment,5000);
         }
